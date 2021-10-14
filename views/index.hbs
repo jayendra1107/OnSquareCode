@@ -1,0 +1,53 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/index.css" />
+    <link rel="stylesheet" href="/nightowl.css" />
+    <title>OnSquareCode</title>
+  </head>
+  <body>
+    <div class="logo">
+      <h1>OnSquareCode</h1>
+    </div>
+    <div>
+      <form action="/" method="POST">
+        <div>
+          <textarea
+            name="codeDescription"
+            id=""
+            class="all-width desc"
+            placeholder="Add description here ..."
+          ></textarea>
+        </div>
+        <div>
+          <textarea
+            name="codeBlock"
+            id=""
+            class="all-width codeB"
+            placeholder="Your code goes here ..."
+          ></textarea>
+        </div>
+        <div class="lower">
+          <select name="codeLanguage" class="all-width dropdown">
+            <option value="default" class="all-width dropdown">Choose a language</option>
+            <option value="c" class="all-width dropdown">C</option>
+            <option value="cpp" class="all-width dropdown">C++</option>
+            <option value="java" class="all-width dropdown">Java</option>
+            <option value="py" class="all-width dropdown">Python</option>
+            <option value="js" class="all-width dropdown">JavaScript</option>
+            <option value="r" class="all-width dropdown">R</option>
+            <option value="php" class="all-width dropdown">PHP</option>
+            <option value="C#" class="all-width dropdown">C#</option>
+          </select>
+          <button type="submit" class="all-width btn">Upload</button>
+        </div>
+      </form>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"
+    ></script>
+    <script>hljs.highlightAll();</script>
+  </body>
+</html>
