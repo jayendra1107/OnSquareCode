@@ -1,0 +1,169 @@
+* {
+  font-family: "Helvetica Neue";
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  display: grid;
+  grid-template-columns: 13rem auto 13rem;
+  height: 3rem;
+  border-bottom: solid 0.01rem rgb(226, 226, 226);
+}
+
+.logo {
+  font-weight: bolder;
+  padding: 1rem;
+  margin-left: 4rem;
+  height: 1rem;
+  color: rgba(49, 22, 102, 0.85);
+}
+
+.logo-text {
+  cursor: pointer;
+}
+
+.login {
+  height: 1rem;
+  padding: 0.6rem 1rem;
+  text-align: center;
+  margin-right: 4rem;
+}
+
+.login-btn {
+  font-weight: bolder;
+  border: solid 0.1rem rgba(49, 22, 102, 0.85);
+  border-radius: 0.3rem;
+  color: rgba(49, 22, 102, 0.85);
+  background-color: transparent;
+  padding: 0.3rem 1.75rem;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background-color: rgba(238, 236, 236, 0.781);
+}
+
+.editor-container {
+  display: grid;
+  grid-template-columns: 3rem auto 3rem;
+  height: 45rem;
+}
+
+.window-container {
+  margin: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: rgb(226, 226, 226) 0px 1px 45px 0px,
+    rgb(228, 233, 255) 0px 0px 0px 1px;
+  height: 42rem;
+  display: grid;
+  width: auto;
+}
+
+.toolbar {
+  height: 3rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  margin: 0.01px 0.01px 0px 0.1px;
+  background-color: rgb(248, 248, 248);
+  border-bottom: solid 0.01rem rgb(226, 226, 226);
+  display: grid;
+  grid-template-columns: 8rem auto 5rem 12rem 8rem;
+}
+
+.dots {
+  margin: 1rem;
+}
+
+.red-dot {
+  height: 0.75rem;
+  width: 0.75rem;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 0.1rem;
+}
+
+.orange-dot {
+  height: 0.75rem;
+  width: 0.75rem;
+  background-color: orange;
+  border-radius: 50%;
+  margin: 0 0.1rem;
+  display: inline-block;
+}
+
+.green-dot {
+  height: 0.75rem;
+  width: 0.75rem;
+  background-color: #bbb;
+  margin: 0 0.1rem;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.theme-select {
+  cursor: pointer;
+  text-align: center;
+  height: 3rem;
+  color: rgba(23, 11, 47, 0.85);
+}
+
+.on-png {
+  height: 1.25rem;
+  margin: 0.875rem;
+}
+
+.lang-select {
+  border-left: solid 0.01rem rgb(226, 226, 226);
+  text-align: left;
+  height: 3rem;
+  font-size: 0.95rem;
+  padding-top: 0.7rem;
+  cursor: pointer;
+}
+
+.lang {
+  height: 1.7rem;
+  background-color: rgb(248, 248, 248);
+  padding: 0.3rem 1rem;
+}
+
+.hidden-lang {
+  border: solid 0.01rem rgb(226, 226, 226);
+}
+
+.hidden-lang {
+  visibility: hidden;
+}
+
+.run-btn {
+  border: none;
+  background-color: transparent;
+  padding: 0.3rem 1.75rem;
+  color: rgb(72, 72, 214);
+  cursor: pointer;
+  font-size: 0.95rem;
+  height: 3rem;
+  text-align: center;
+}
+
+.code-window {
+  display: grid;
+  grid-template-columns: auto 20rem;
+  height: 39rem;
+}
+
+.code-block {
+  background-color: transparent;
+  border-radius: 0rem 0rem 0rem 0.5rem;
+  margin: 0rem 0.01rem;
+  font-family: "Monaco", monospace;
+  padding: 0.25rem;
+  padding-left: 1rem;
+}
+
+.compiler-window {
+  border-left: solid 0.01rem rgb(226, 226, 226);
+  padding: 0.25rem;
+  font-family: monospace;
+}
