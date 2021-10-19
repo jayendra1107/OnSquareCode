@@ -178,7 +178,7 @@
 @media screen and (max-width: 700px) {
     .navbar {
   display: grid;
-  grid-template-columns: auto 0rem 0rem;
+  grid-template-columns: auto 0rem 5rem;
   text-align: center;
 }
 .logo {
