@@ -180,7 +180,7 @@
 @media screen and (max-width: 700px) {
     .navbar {
   display: grid;
-  grid-template-columns: auto 0 0;
+  grid-template-columns: auto 0 4rem;
   text-align: center;
 }
     .login {
