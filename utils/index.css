@@ -166,8 +166,6 @@
 #editor {
   border-radius: 0rem 0rem 0.5rem 0.5rem;
   margin-bottom: 0.01rem;
-  font-size: 0.85rem;
-  font-family: monaco;
 }
 
 .compiler-window {
@@ -180,8 +178,11 @@
 @media screen and (max-width: 700px) {
     .navbar {
   display: grid;
-  grid-template-columns: auto 0 4rem;
+  grid-template-columns: auto 0rem 0rem;
   text-align: center;
+}
+.logo {
+    display: inline-block;
 }
     .login {
         display: none;
