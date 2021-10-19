@@ -4,28 +4,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/index.css" />
-    <link rel="stylesheet" href="/nightowl.css" />
     <title>OnSquareCode</title>
   </head>
   <body>
-    <div class="logo">
-      <h1>OnSquareCode</h1>
-    </div>
-    <div>
-      <textarea class="all-width desc">{{resData.codeDescription}}</textarea>
-    </div>
-    <div>
-      <textarea class="all-width codeB">{{resData.codeBlock}}</textarea>
-    </div>
-    <div>
-      <div class="lower">
-        <button class="all-width btn">{{resData.codeLanguage}}</button>
-        <a href="/"><button class="all-width btn">Home</button></a>
+    <div class="navbar">
+      <div class="logo"><span class="logo-text">OnSquareCode</span></div>
+      <div class="link-tab"></div>
+      <div class="login">
+        <button class="login-btn">Login</button>
       </div>
     </div>
+    <div class="description">
+      <span class="description-container">{{resData.codeDescription}}</span>
+    </div>
+    <div class="editor-container">
+      <div></div>
+      <div class="window-container">
+        <div class="toolbar">
+          <div class="dots">
+            <span class="red-dot"></span>
+            <span class="orange-dot"></span>
+            <span class="green-dot"></span>
+          </div>
+          <div></div>
+          <div class="lang-select">
+            <button class="run-btn">
+              {{resData.codeLanguage}}
+            </button>
+          </div>
+          <div class="run">
+            <a href="/"><button id="runBtn" class="run-btn">Home</button></a>
+          </div>
+        </div>
+        <div class="code-window">
+          <div id="editor" name="codeBlock">{{resData.codeBlock}}</div>
+        </div>
+      </div>
+      <div></div>
+    </div>
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.js"
+      integrity="sha512-OMjy8oWtPbx9rJmoprdaQdS2rRovgTetHjiBf7RL7LvRSouoMLks5aIcgqHb6vGEAduuPdBTDCoztxLR+nv45g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     ></script>
-    <script>hljs.highlightAll();</script>
+    <script>
+      var editor = ace.edit("editor"); editor.setTheme("ace/theme/xcode");
+      editor.session.setMode("ace/mode/c_cpp");
+    </script>
+    <div>
   </body>
 </html>

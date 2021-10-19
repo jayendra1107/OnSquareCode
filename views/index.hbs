@@ -4,50 +4,88 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/index.css" />
-    <link rel="stylesheet" href="/nightowl.css" />
     <title>OnSquareCode</title>
   </head>
   <body>
-    <div class="logo">
-      <h1>OnSquareCode</h1>
+    <div class="navbar">
+      <div class="logo"><span class="logo-text">OnSquareCode</span></div>
+      <div class="link-tab"></div>
+      <div class="login">
+        <button class="login-btn">Login</button>
+      </div>
     </div>
-    <div>
-      <form action="/" method="POST">
-        <div>
-          <textarea
-            name="codeDescription"
-            id=""
-            class="all-width desc"
-            placeholder="Add description here ..."
-          ></textarea>
+    <form action="/" method="POST">
+      <div class="description">
+        <textarea
+          name="codeDescription"
+          class="description-container"
+          placeholder="Add description here ..."
+        ></textarea>
+      </div>
+      <div class="editor-container">
+        <div></div>
+        <div class="window-container">
+          <div class="toolbar">
+            <div class="dots">
+              <span class="red-dot"></span>
+              <span class="orange-dot"></span>
+              <span class="green-dot"></span>
+            </div>
+            <div></div>
+            <div class="lang-select">
+              <select name="codeLanguage" class="dropdown">
+                <option value="C">C</option>
+                <option value="C++">C++</option>
+                <option value="Java">Java</option>
+                <option value="Python">Python</option>
+                <option value="Javascript">Javascript</option>
+                <option value="R">R</option>
+                <option value="Ruby">PHP</option>
+                <option value="PHP">C#</option>
+              </select>
+            </div>
+            <textarea name="codeBlock" id="hidden">ss</textarea>
+            <div class="run">
+              <button id="runBtn" type="submit" class="run-btn">Upload</button>
+            </div>
+          </div>
+          <div class="code-window">
+            <div id="editor" name="codeBlock">Your Code goes here...</div>
+          </div>
         </div>
-        <div>
-          <textarea
-            name="codeBlock"
-            id=""
-            class="all-width codeB"
-            placeholder="Your code goes here ..."
-          ></textarea>
-        </div>
-        <div class="lower">
-          <select name="codeLanguage" class="all-width dropdown">
-            <option value="default" class="all-width dropdown">Choose a language</option>
-            <option value="c" class="all-width dropdown">C</option>
-            <option value="cpp" class="all-width dropdown">C++</option>
-            <option value="java" class="all-width dropdown">Java</option>
-            <option value="py" class="all-width dropdown">Python</option>
-            <option value="js" class="all-width dropdown">JavaScript</option>
-            <option value="r" class="all-width dropdown">R</option>
-            <option value="php" class="all-width dropdown">PHP</option>
-            <option value="C#" class="all-width dropdown">C#</option>
-          </select>
-          <button type="submit" class="all-width btn">Upload</button>
-        </div>
-      </form>
-    </div>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"
-    ></script>
-    <script>hljs.highlightAll();</script>
+        <div></div>
+      </div>
+      <script>
+        var codeValue = document.getElementById("editor"); var runBtn =
+        document.getElementById("runBtn"); runBtn.onclick = function func() {
+          if(document.getElementsByClassName("description-container").value === null) {
+            alert("Add Description");
+            return;
+          }
+        let val = ""; 
+        let update = codeValue.innerText;
+        let temp = 1;
+        var i = 0;
+        while(update[i] == temp.toString()) {
+          i+=2;
+          temp +=1;
+        } 
+        for(i; i<update.length; i++) {
+          val += update[i];
+        } 
+        document.getElementById("hidden").value = val; 
+        }
+      </script>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.js"
+        integrity="sha512-OMjy8oWtPbx9rJmoprdaQdS2rRovgTetHjiBf7RL7LvRSouoMLks5aIcgqHb6vGEAduuPdBTDCoztxLR+nv45g=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      ></script>
+      <script>
+        var editor = ace.edit("editor"); editor.setTheme("ace/theme/xcode");
+        editor.session.setMode("ace/mode/c_cpp");
+      </script>
+    </form>
   </body>
 </html>

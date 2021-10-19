@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 let codeSchema = new mongoose.Schema({
     codeDescription: {
         type: String,
-        required: true
+        required: false
     },
     codeLanguage: {
         type: String,
