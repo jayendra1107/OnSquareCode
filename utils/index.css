@@ -178,12 +178,20 @@
 }
 
 @media screen and (max-width: 700px) {
+    .navbar {
+  display: grid;
+  grid-template-columns: auto 0 0;
+  text-align: center;
+}
+    .login {
+        display: none;
+    }
   .description {
-    padding: 0 2.8rem;
+    padding: 0 1.7rem;
   }
   .editor-container {
     display: grid;
-    grid-template-columns: 1rem auto 1rem;
+    grid-template-columns: 0.01rem auto 0.01rem;
     height: 45rem;
   }
 }
