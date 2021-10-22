@@ -36,7 +36,7 @@
               {{resData.codeLanguage}}
             </button>
           </div>
-          <textarea name="codeBlock" id="hidden">ss</textarea>
+          <textarea name="codeBlock" id="codeBlock" class="hidden">ss</textarea>
           <div class="run">
             <a href="/"><button id="runBtn" type="submit" class="run-btn">Update</button></a>
           </div>
@@ -55,7 +55,7 @@
       referrerpolicy="no-referrer">
     </script>
     <script>
-      let input = document.getElementById("hidden");
+      let input = document.getElementById("codeBlock");
       let runBtn = document.getElementById("runBtn");
       runBtn.onclick = function func() {
         input.value = editor.getValue();
