@@ -5,18 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/index.css" />
     <title>OnSquareCode</title>
+
   </head>
-  <body>
+  <body onload="func()">
     <div class="navbar">
-      <div class="logo"><span class="logo-text">OnSquareCode</span></div>
+      <div class="logo"><a href="/" class="logoanker"><span class="logo-text">OnSquareCode</span></a></div>
       <div class="link-tab"></div>
       <div class="login">
-        <button class="login-btn">Login</button>
+        <a href="https://github.com/jayendra1107/OnSquareCode" class="logoanker">
+          <img class="login-btn" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
+        </a>
       </div>
     </div>
     <div class="description">
       <span class="description-container">{{resData.codeDescription}}</span>
     </div>
+    <form action={{path}} method="POST">
     <div class="editor-container">
       <div></div>
       <div class="window-container">
@@ -28,30 +32,74 @@
           </div>
           <div></div>
           <div class="lang-select">
-            <button class="run-btn">
+            <button class="run-btn" id="langSelector">
               {{resData.codeLanguage}}
             </button>
           </div>
+          <textarea name="codeBlock" id="hidden">ss</textarea>
           <div class="run">
-            <a href="/"><button id="runBtn" class="run-btn">Home</button></a>
+            <a href="/"><button id="runBtn" type="submit" class="run-btn">Update</button></a>
           </div>
         </div>
         <div class="code-window">
-          <div id="editor" name="codeBlock">{{resData.codeBlock}}</div>
+          <div id="editor">{{resData.codeBlock}}</div>
         </div>
       </div>
       <div></div>
     </div>
+    </form>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.js"
       integrity="sha512-OMjy8oWtPbx9rJmoprdaQdS2rRovgTetHjiBf7RL7LvRSouoMLks5aIcgqHb6vGEAduuPdBTDCoztxLR+nv45g=="
       crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script>
-      var editor = ace.edit("editor"); editor.setTheme("ace/theme/xcode");
-      editor.session.setMode("ace/mode/c_cpp");
+      referrerpolicy="no-referrer">
     </script>
-    <div>
+    <script>
+      let input = document.getElementById("hidden");
+      let runBtn = document.getElementById("runBtn");
+      runBtn.onclick = function func() {
+        input.value = editor.getValue();
+      }
+    </script>
+    <script>
+      let mode = "batchfile";
+      let editor = ace.edit("editor");
+      editor.setTheme("ace/theme/xcode");
+      editor.session.setMode(`ace/mode/${mode}`);
+      let langSelector = document.getElementById("langSelector");
+      const func = () => {
+        var val = langSelector.innerText;
+        if(val === "Bash") {
+          mode = "batchfile";
+        } else if (val === "C" || val === "C++"){
+          mode = "c_cpp";
+        } else if (val === "C#") {
+          mode = "csharp";
+        } else if (val === "Dart") {            
+          mode = "dart";
+        } else if (val === "Golang") {
+          mode = "golang";
+        } else if (val === "Java") {
+          mode = "java";
+        } else if (val === "Javascript") {
+          mode = "javascript";
+        } else if (val === "Kotlin") {
+          mode = "kotlin";
+        } else if (val === "PHP") {
+          mode = "php";
+        } else if (val === "Python") {
+          mode = "python";
+        } else if (val === "R") {
+          mode = "r";
+        } else if (val === "Ruby") {
+          mode = "ruby";
+        } else if (val === "Swift") {
+          mode = "swift";
+        } else {
+          mode = "typescript";
+        }
+        editor.session.setMode(`ace/mode/${mode}`);
+      }
+    </script>
   </body>
 </html>

@@ -26,11 +26,19 @@ router.post('/', (req, res) => {
 router.get('/:id', (req, res) => {
     let id = req.params.id;
     Data.findById(id, (err, resData) => {
-        if(!err) {
-            res.render("codeSnippet", { resData })
+        if (!err) {
+            let path = "/" + id;
+            res.render("codeSnippet", { resData, path });
         } else {
             res.send("Page doesn't exist");
         }
+    });
+});
+
+router.post('/:id', (req, res) => {
+    let id = req.params.id;
+    Data.findOneAndUpdate({_id: id },{ codeBlock: req.body.codeBlock },(err, resData) => {
+        res.redirect(`/${id}`);
     });
 });
 

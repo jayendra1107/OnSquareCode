@@ -8,10 +8,11 @@
   </head>
   <body>
     <div class="navbar">
-      <div class="logo"><span class="logo-text">OnSquareCode</span></div>
-      <div class="link-tab"></div>
+      <div class="logo"><a href="/" class="logoanker"><span class="logo-text">OnSquareCode</span></a></div>      <div class="link-tab"></div>
       <div class="login">
-        <button class="login-btn">Login</button>
+        <a href="https://github.com/jayendra1107/OnSquareCode" class="logoanker">
+          <img class="login-btn" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
+        </a>
       </div>
     </div>
     <form action="/" method="POST">
@@ -33,7 +34,7 @@
             </div>
             <div></div>
             <div class="lang-select">
-              <select name="codeLanguage" class="dropdown">
+              <select name="codeLanguage" class="dropdown" id="langSelector">
                 <option value="Bash">Bash</option>
                 <option value="C">C</option>
                 <option value="C++">C++</option>
@@ -41,7 +42,6 @@
                 <option value="Dart">Dart</option>
                 <option value="Golang">Golang</option>
                 <option value="Java">Java</option>
-                <option value="Python">Python</option>
                 <option value="Javascript">Javascript</option>
                 <option value="Kotlin">Kotlin</option>
                 <option value="PHP">PHP</option>
@@ -52,48 +52,70 @@
                 <option value="Typescript">Typescript</option>
               </select>
             </div>
-            <textarea name="codeBlock" id="hidden">ss</textarea>
+            <textarea name="codeBlock" id="codeBlock" class="hidden"></textarea>
             <div class="run">
               <button id="runBtn" type="submit" class="run-btn">Upload</button>
             </div>
           </div>
           <div class="code-window">
-            <div id="editor" name="codeBlock">Your Code goes here...</div>
+            <div id="editor">Your code goes here...</div>
           </div>
         </div>
         <div></div>
       </div>
-      <script>
-        var codeValue = document.getElementById("editor"); var runBtn =
-        document.getElementById("runBtn"); runBtn.onclick = function func() {
-          if(document.getElementsByClassName("description-container").value === null) {
-            alert("Add Description");
-            return;
-          }
-        let val = ""; 
-        let update = codeValue.innerText;
-        let temp = 1;
-        var i = 0;
-        while(update[i] == temp.toString()) {
-          i+=2;
-          temp +=1;
-        } 
-        for(i; i<update.length; i++) {
-          val += update[i];
-        } 
-        document.getElementById("hidden").value = val; 
-        }
-      </script>
-      <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.js"
-        integrity="sha512-OMjy8oWtPbx9rJmoprdaQdS2rRovgTetHjiBf7RL7LvRSouoMLks5aIcgqHb6vGEAduuPdBTDCoztxLR+nv45g=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-      ></script>
-      <script>
-        var editor = ace.edit("editor"); editor.setTheme("ace/theme/xcode");
-        editor.session.setMode("ace/mode/c_cpp");
-      </script>
     </form>
+    <script>
+      let input = document.getElementById("codeBlock");
+      let runBtn = document.getElementById("runBtn");
+      runBtn.onclick = function func() {
+        input.value = editor.getValue();
+      }
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.js"
+      integrity="sha512-OMjy8oWtPbx9rJmoprdaQdS2rRovgTetHjiBf7RL7LvRSouoMLks5aIcgqHb6vGEAduuPdBTDCoztxLR+nv45g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      let mode = "batchfile";
+      let editor = ace.edit("editor");
+      editor.setTheme("ace/theme/xcode");
+      editor.session.setMode(`ace/mode/${mode}`);
+      let langSelector = document.getElementById("langSelector");
+      langSelector.onchange = function func() {
+        var val = langSelector.value;
+        if(val === "Bash") {
+          mode = "batchfile";
+        } else if (val === "C" || val === "C++"){
+          mode = "c_cpp";
+        } else if (val === "C#") {
+          mode = "csharp";
+        } else if (val === "Dart") {
+          mode = "dart";
+        } else if (val === "Golang") {
+          mode = "golang";
+        } else if (val === "Java") {
+          mode = "java";
+        } else if (val === "Javascript") {
+          mode = "javascript";
+        } else if (val === "Kotlin") {
+          mode = "kotlin";
+        } else if (val === "PHP") {
+          mode = "php";
+        } else if (val === "Python") {
+          mode = "python";
+        } else if (val === "R") {
+            mode = "r";
+          } else if (val === "Ruby") {
+          mode = "ruby";
+        } else if (val === "Swift") {
+          mode = "swift";
+        } else {
+          mode = "typescript";
+        }
+        editor.session.setMode(`ace/mode/${mode}`);
+      }
+    </script>
   </body>
 </html>

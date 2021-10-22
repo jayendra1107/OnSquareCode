@@ -11,7 +11,7 @@ let codeSchema = new mongoose.Schema({
     },
     codeBlock: {
         type:String,
-        required: true
+        required: false
     }
 });
 
